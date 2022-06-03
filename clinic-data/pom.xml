@@ -5,7 +5,7 @@
     <parent>
         <artifactId>sfg-pet-clinic</artifactId>
         <groupId>com.oothan.springdev</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.3-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -15,6 +15,7 @@
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-boot.repackage.skip>true</spring-boot.repackage.skip>
         <start-class>com.oothan.springdev.sfgpetclinic.SfgPetClinicApplication</start-class>
     </properties>
 
