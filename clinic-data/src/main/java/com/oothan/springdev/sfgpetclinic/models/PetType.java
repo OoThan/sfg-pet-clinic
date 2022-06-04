@@ -1,4 +1,4 @@
-package com.oothan.springdev.sfgpetclinic.model;
+package com.oothan.springdev.sfgpetclinic.models;
 
 public class PetType {
     private String name;
