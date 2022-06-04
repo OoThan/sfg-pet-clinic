@@ -15,7 +15,7 @@
 
     <groupId>com.oothan.springdev</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>sfg-pet-clinic</name>
     <description>SFG Pet Clinic Project</description>
@@ -54,7 +54,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:OoThan/sfg-pet-clinic.git</developerConnection>
+        <developerConnection>scm:git:https://OoThan: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@github.com:OoThan/sfg-pet-clinic.git</developerConnection>
         <tag>sfg-pet-clinic-1.0.1</tag>
     </scm>
 
