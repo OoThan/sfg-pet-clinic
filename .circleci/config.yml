@@ -11,16 +11,16 @@ jobs:
     # You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # Be sure to update the Docker image tag below to openjdk version of your application.
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
-
+    
     docker:
       - image: cimg/openjdk:11-stretch
 
     working_directory: ~/sfg-pet-clinic
 
-#    environment:
-#      # Customize the JVM maximum heap limit
-#      JVM_OPTS: -Xmx3200m
-#      TERM: dumb
+    environment:
+      # Customize the JVM maximum heap limit
+      JVM_OPTS: -Xmx3200m
+      TERM: dumb
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
@@ -79,8 +79,7 @@ jobs:
 workflows:
   workflow:
     jobs:
-      - foo
-      - bar
+      - build-and-test
 
   
 
