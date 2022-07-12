@@ -54,7 +54,22 @@ jobs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   version: 2
-  sfg-pet-clinic:
+  fork-commit-workflow:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: /^[A-Za-z0-9].*/
+
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
+          filters: 
+            branches:
+              only:
+                - main
+    
     jobs:
       - build
       - test
