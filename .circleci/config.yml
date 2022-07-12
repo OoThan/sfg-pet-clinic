@@ -29,9 +29,9 @@ jobs:
 
       - restore_cache:
           keys:
-            - sfg-pet-clinic-{{ checksum "pom.xml" }}
+            - v1-sfg-pet-clinic-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
-            - sfg-pet-clinic-
+            - v1-sfg-pet-clinic-
 
       - run: mvn dependency:go-offline
 
@@ -40,7 +40,7 @@ jobs:
       - save_cache:
           paths:
             - ~/.m2
-          key: sfg-pet-clinic-{{ checksum "pom.xml" }}
+          key: v1-sfg-pet-clinic-{{ checksum "pom.xml" }}
             # Use mvn clean and package as the standard maven build phase
       - run:
           name: Build
@@ -53,6 +53,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
+  version: 2
   # version: 2.1
   # fork-commit-workflow:
   #   jobs:
@@ -72,5 +73,5 @@ workflows:
 
   build-workflow:
     jobs:
-      - build
+    - build
 
