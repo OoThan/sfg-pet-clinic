@@ -71,7 +71,7 @@ workflows:
   #             only:
   #               - main
 
-  build-workflow:
+  "sfg-pet-clinic-Workflow":
     jobs:
-    - build
+      - sfg-pet-clinic/sfg-pet-clinic-build
 
