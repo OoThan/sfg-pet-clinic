@@ -76,12 +76,10 @@ jobs:
   #     - sfg-pet-clinic/sfg-pet-clinic-build
 
 
-# workflows:
-#   version: 2
-#   test:
-#     jobs:
-#       - test-build
-#       - test-test1
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
 
   
 
