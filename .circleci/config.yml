@@ -13,7 +13,7 @@ jobs:
     # A list of available CircleCI Docker Convenience Images are available here: https://circleci.com/developer/images/image/cimg/openjdk
     
     docker:
-      - image: cimg/openjdk:11-stretch
+    - image: cimg/openjdk:11-stretch
 
     working_directory: ~/sfg-pet-clinic
 
@@ -30,27 +30,28 @@ jobs:
 
       - restore_cache:
           keys:
-            - v1-sfg-pet-clinic-{{ checksum "pom.xml" }}
+            - v1-dependencies-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-sfg-pet-clinic-
+            - v1-dependencies-
 
       - run: mvn dependency:go-offline
-
-      - run: mvn package
 
       - save_cache:
           paths:
             - ~/.m2
-          key: v1-sfg-pet-clinic-{{ checksum "pom.xml" }}
+          key: v1-dependencies-{{ checksum "pom.xml" }}
             # Use mvn clean and package as the standard maven build phase
-      - run:
-          name: Build
-          command: mvn -B -DskipTests clean package
+      
+      - run: mvn integration-test
+
+      # - run:
+      #     name: Build
+      #     command: mvn -B -DskipTests clean package
           
-      # Then run your tests!
-      - run:
-          name: Test
-          command: mvn test
+      # # Then run your tests!
+      # - run:
+      #     name: Test
+      #     command: mvn test
 
 workflows:
   version: 2
