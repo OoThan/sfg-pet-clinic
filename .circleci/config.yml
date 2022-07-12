@@ -53,23 +53,24 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  version: 2
-  fork-commit-workflow:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: /^[A-Za-z0-9].*/
+  version: 2.1
+  # fork-commit-workflow:
+  #   jobs:
+  #     - build:
+  #         filters:
+  #           branches:
+  #             only: /^[A-Za-z0-9].*/
 
-  scheduled-workflow:
-    triggers:
-      - schedule:
-          cron: "0 0 * * *"
-          filters: 
-            branches:
-              only:
-                - main
-    
+  # scheduled-workflow:
+  #   triggers:
+  #     - schedule:
+  #         cron: "0 0 * * *"
+  #         filters: 
+  #           branches:
+  #             only:
+  #               - main
+
+  build-and-test: 
     jobs:
       - build
       - test
