@@ -53,7 +53,7 @@ jobs:
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
-  version: 2.1
+  # version: 2.1
   # fork-commit-workflow:
   #   jobs:
   #     - build:
@@ -70,8 +70,7 @@ workflows:
   #             only:
   #               - main
 
-  build-and-test: 
+  build-workflow:
     jobs:
       - build
-      - test
 
