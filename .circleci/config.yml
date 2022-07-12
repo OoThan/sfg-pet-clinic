@@ -78,8 +78,10 @@ jobs:
 
 workflows:
   version: 2
-  sfg-pet-clinic:
+  test:
     jobs:
-      - build
-      - test
+      - test-build
+      - test-test1
+
+  
 
