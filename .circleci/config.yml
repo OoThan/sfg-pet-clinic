@@ -54,7 +54,7 @@ jobs:
 
 workflows:
   version: 2
-  sfg-pet-clinic:
+  setup:
     jobs:
       - build-and-test
 
