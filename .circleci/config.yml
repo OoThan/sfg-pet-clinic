@@ -77,7 +77,7 @@ jobs:
 
 
 workflows:
-  workflow:
+  sfg-pet-clinic:
     jobs:
       - build-and-test
 
