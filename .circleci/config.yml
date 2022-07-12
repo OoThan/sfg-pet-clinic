@@ -33,6 +33,10 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
+      - setup_remote_docker:
+          version: 20.10.11
+      - checkout
+      - run: docker buildx build .
 
       - restore_cache:
           keys:
