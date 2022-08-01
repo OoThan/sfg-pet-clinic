@@ -15,7 +15,7 @@ jobs:
     docker:
     - image: cimg/openjdk:11-stretch
 
-    working_directory: ~/sfg-pet-clinic
+    working_directory: ~/repo
 
     environment:
       # Customize the JVM maximum heap limit
@@ -27,23 +27,23 @@ jobs:
     steps:
       # Checkout the code as the first step.
       - checkout
-      - setup_remote_docker:
-          version: 20.10.11
-      - checkout
-      - run: docker buildx build .
+#      - setup_remote_docker:
+#          version: 20.10.11
+#      - checkout
+#      - run: docker buildx build .
 
       - restore_cache:
           keys:
-            - sfg-pet-clinic-{{ checksum "pom.xml" }}
+            - v1-dependencies-{{ checksum "pom.xml" }}
             # fallback to using the latest cache if no exact match is found
-            - sfg-pet-clinic-
+            - v1-dependencies-
 
       - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
             - ~/.m2
-          key: sfg-pet-clinic-{{ checksum "pom.xml" }}
+          key: v1-dependencies-{{ checksum "pom.xml" }}
             # Use mvn clean and package as the standard maven build phase
       
       - run: mvn integration-test
@@ -59,7 +59,7 @@ jobs:
 
 workflows:
   version: 2
-  build:
+  sample:
     jobs:
       - build-and-test
 
